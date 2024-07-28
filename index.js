@@ -12,7 +12,8 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send({
     "status":true,
-    "txt":"QNA Server is Listening..."
+    "txt":"QNA Server is Listening...",
+    "time":new Date().toLocaleString("en-Us", {timeZone: 'Asia/Kolkata'})
   });
 });
 
