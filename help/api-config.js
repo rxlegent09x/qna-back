@@ -8,7 +8,7 @@ const { send_Mail } = require("./gmail-config.js");
 
 const save_data=(req,res,full_data)=>{
 
-    const time = (new Date().toDateString()+" "+new Date().toTimeString());
+    const time = new Date().toLocaleString("en-Us", {timeZone: 'Asia/Kolkata'});
 
     full_data = {...full_data,pass:encryption(full_data.pass),createdAt:time};
     const u = new Users(full_data);
