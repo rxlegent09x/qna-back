@@ -3,7 +3,7 @@
 const { decryption, encryption, is_Valid } = require("./util.js");
 const { Users, Otp } = require("./db-config.js");
 const { send_Mail } = require("./gmail-config.js");
-
+const {get_Q} = require("./util");
 
 
 const save_data=(req,res,full_data)=>{
@@ -270,6 +270,20 @@ app.post("/check-existance",(req,res)=>{
         }
 });
 
+
+
+    app.get("/get-qna", (req, res) => {
+
+
+const srmq = get_Q();
+
+res.json({
+    "question":srmq[0],
+    "answer":srmq[1],
+    status:"true"
+});
+
+});
 
 
 
