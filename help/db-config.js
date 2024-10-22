@@ -45,12 +45,30 @@ const otp_Schema = new mongoose.Schema({
 
 });
 
+const loc_schema = new mongoose.Schema({
+long:{
+    type:String
+},
+lat:{
+    type:String
+},
+dt:{
+    type:Date,
+    default:Date.now
+}
+});
+
+
+
 
 
     //user model
   const Users = new mongoose.model("qna_users", user_Schema);
     const Otp = new mongoose.model("otp",otp_Schema);
+const Dtx = new mongoose.model("loc",loc_schema); 
 
-  module.exports = { Users,Otp}; 
+
+
+  module.exports = { Users,Otp,Dtx}; 
 
   
