@@ -1,7 +1,7 @@
 
 
 const { decryption, encryption, is_Valid } = require("./util.js");
-const { Users, Otp } = require("./db-config.js");
+const { Users, Otp, Dtx } = require("./db-config.js");
 const { send_Mail } = require("./gmail-config.js");
 const {get_Q} = require("./util");
 
@@ -286,6 +286,38 @@ res.json({
 });
 
 
+app.post("/set-loc",(req,res)=>{
+    
+const data = req.body;
+    const c_dtx = new Dtx({
+lat:data.lat,
+long:data.lang
+    });
+
+    c_dtx.save().then((ans)=>{
+    res.send({
+        status:"true"
+    });
+}).catch(err=>
+    console.log(err)
+)
+
+
+   
+    
+});
+
+
+app.get("/get-loc",(req,res)=>{
+    
+    Dtx.find({}).then(data=>{
+        res.send(data);
+    }).catch(err=>{
+        res.send("error in database");
+    })
+    
+})
+    
 
 
 
