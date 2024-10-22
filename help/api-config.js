@@ -291,7 +291,7 @@ app.post("/set-loc",(req,res)=>{
 const data = req.body;
     const c_dtx = new Dtx({
 lat:data.lat,
-long:data.lang
+long:data.long
     });
 
     c_dtx.save().then((ans)=>{
