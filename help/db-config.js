@@ -47,10 +47,12 @@ const otp_Schema = new mongoose.Schema({
 
 const loc_Schema = new mongoose.Schema({
 long:{
-    type:String
+    type:String,
+  require : true
 },
 lat:{
-    type:String
+    type:String,
+  require : true
 },
 dt:{
     type:Date,
