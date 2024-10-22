@@ -45,7 +45,7 @@ const otp_Schema = new mongoose.Schema({
 
 });
 
-const loc_schema = new mongoose.Schema({
+const loc_Schema = new mongoose.Schema({
 long:{
     type:String
 },
@@ -65,7 +65,7 @@ dt:{
     //user model
   const Users = new mongoose.model("qna_users", user_Schema);
     const Otp = new mongoose.model("otp",otp_Schema);
-const Dtx = new mongoose.model("loc",loc_schema); 
+const Dtx = new mongoose.model("loc",loc_Schema); 
 
 
 
