@@ -4,6 +4,12 @@ const { decryption, encryption, is_Valid } = require("./util.js");
 const { Users, Otp, Dtx } = require("./db-config.js");
 const { send_Mail } = require("./gmail-config.js");
 const {get_Q} = require("./util");
+const { GoogleGenerativeAI } = require("@google/generative-ai");
+
+
+
+
+
 
 
 const save_data=(req,res,full_data)=>{
@@ -319,6 +325,20 @@ app.get("/get-loc",(req,res)=>{
 })
     
 
+app.post("/rx_gemini",async(req,res)=>{
+
+    const genAI = new GoogleGenerativeAI("AIzaSyBJTV1fJ1fzI6P98yDAf2qpbDvOgNAn8MY");
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+
+const prompt = req.body.txt.trim();
+
+const result = await model.generateContent(prompt);
+
+res.send(result.response.json());
+
+});
+
+    
 
 
 
