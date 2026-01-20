@@ -291,37 +291,8 @@ res.json({
 });
 
 
-app.post("/set-loc",(req,res)=>{
-    
-const data = req.body;
-    const c_dtx = new Dtx({
-lat:data.lat,
-long:data.long
-    });
-
-    c_dtx.save().then((ans)=>{
-    res.send({
-        status:"true"
-    });
-}).catch(err=>
-    console.log(err)
-)
 
 
-   
-    
-});
-
-
-app.get("/get-loc",(req,res)=>{
-    
-    Dtx.find({}).then(data=>{
-        res.send(data);
-    }).catch(err=>{
-        res.send("error in database");
-    })
-    
-})
     
 
 
@@ -336,5 +307,6 @@ app.get("/get-loc",(req,res)=>{
 
 
 module.exports = { apion };
+
 
 
