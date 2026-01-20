@@ -4,7 +4,6 @@ const { decryption, encryption, is_Valid } = require("./util.js");
 const { Users, Otp, Dtx } = require("./db-config.js");
 const { send_Mail } = require("./gmail-config.js");
 const {get_Q} = require("./util");
-const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 
 
@@ -349,3 +348,4 @@ res.send(result.response.json());
 
 
 module.exports = { apion };
+
