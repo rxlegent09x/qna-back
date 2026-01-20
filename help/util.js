@@ -1,6 +1,6 @@
-import CryptoJS from 'crypto-js';
-import dotenv from 'dotenv';
-dotenv.config();
+const CryptoJS = require('crypto-js');
+require('dotenv').config();
+
 
 export const encryption = (data = "") => {
   if (data.trim().length) {
@@ -125,4 +125,5 @@ const get_Q=()=>{
 
 
 module.exports={encryption,decryption,is_Valid,get_Q};
+
 
