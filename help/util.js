@@ -4,7 +4,9 @@ require('dotenv').config();
 const encryption=(data="")=>{
    if(data.trim().length){
     const passphrase = process.env.SECRET_KEY;
-   return CryptoJS.AES.encrypt(data, passphrase).toString();
+   const tx= CryptoJS.AES.encrypt(data, passphrase).toString();
+      console.log("enc",tx);
+      return tx;
        // return data.trim();
    }
    return -1;
@@ -14,7 +16,10 @@ const decryption=(data="")=>{
     const passphrase = process.env.SECRET_KEY;
   const bytes = CryptoJS.AES.decrypt(data, passphrase);
 
-  return bytes.toString(CryptoJS.enc.Utf8);
+  const tx= bytes.toString(CryptoJS.enc.Utf8);
+      console.log("dec",tx);
+      return tx;
+      
       // return data.trim();
    }
    return -1;
@@ -121,6 +126,7 @@ const get_Q=()=>{
 
 
 module.exports={encryption,decryption,is_Valid,get_Q};
+
 
 
 
