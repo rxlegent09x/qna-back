@@ -179,7 +179,7 @@ app.post("/login", (req, res) => {
 app.post("/forget-pass", (req, res) => {
 
     //check mail valid or not
-
+console.log("data",req.body.enc_data);
     const gmail = decryption(req.body.enc_data);
 
 
@@ -307,6 +307,7 @@ res.json({
 
 
 module.exports = { apion };
+
 
 
 
